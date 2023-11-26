@@ -34,7 +34,7 @@ dependencies:
   geocoding: ^2.1.1
   geolocator: ^10.1.0
   get: ^4.6.6
-  http: ^1.1.1
+  http: ^1.1.0
   sleek_circular_slider: ^2.0.1
 
 dev_dependencies:
