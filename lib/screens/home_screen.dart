@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sky_cast_weatherapp/controller/global_controller.dart';
+import 'package:sky_cast_weatherapp/widgets/current_weather.dart';
 import 'package:sky_cast_weatherapp/widgets/header.dart';
+import 'package:sky_cast_weatherapp/widgets/hourly_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,14 +25,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
-              : ListView(
-                  scrollDirection: Axis.vertical,
-                  children: const [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    HeaderWidget(),
-                  ],
+              : Center(
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const HeaderWidget(),
+                      // for our current temperature
+                      CurrentWeatherWidget(
+                        weatherDataCurrent:
+                            globalController.getData().getCurrentWeather(),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      HourlyDataWidget(
+                        weatherDataHourly:
+                            globalController.getData().getHourlyWeather(),
+                      )
+                    ],
+                  ),
                 )),
         ),
       ),
