@@ -1,33 +1,38 @@
-//instance for getting the api response
+//instance for getting api response
 class WeatherDataCurrent {
-  final CurrentData current;
+  final Current current;
   WeatherDataCurrent({required this.current});
 
   factory WeatherDataCurrent.fromJson(Map<String, dynamic> json) =>
-      WeatherDataCurrent(current: CurrentData.fromJson(json['current']));
+      WeatherDataCurrent(current: Current.fromJson(json['current']));
 }
 
-class CurrentData {
+class Current {
   int? temp;
   int? humidity;
   int? clouds;
   double? windSpeed;
-
+  double? uvIndex;
+  double? feelsLike;
   List<Weather>? weather;
 
-  CurrentData({
+  Current({
     this.temp,
     this.humidity,
     this.clouds,
     this.windSpeed,
+    this.uvIndex,
+    this.feelsLike,
     this.weather,
   });
 
-  factory CurrentData.fromJson(Map<String, dynamic> json) => CurrentData(
+  factory Current.fromJson(Map<String, dynamic> json) => Current(
         temp: (json['temp'] as num?)?.round(),
         humidity: json['humidity'] as int?,
         clouds: json['clouds'] as int?,
         windSpeed: (json['wind_speed'] as num?)?.toDouble(),
+        uvIndex: (json['uvi'] as num?)?.toDouble(),
+        feelsLike: (json['feels_like'] as num?)?.toDouble(),
         weather: (json['weather'] as List<dynamic>?)
             ?.map((e) => Weather.fromJson(e as Map<String, dynamic>))
             .toList(),
@@ -38,6 +43,8 @@ class CurrentData {
         'humidity': humidity,
         'clouds': clouds,
         'wind_speed': windSpeed,
+        'uvi': uvIndex,
+        'feels_like': feelsLike,
         'weather': weather?.map((e) => e.toJson()).toList(),
       };
 }
@@ -55,7 +62,6 @@ class Weather {
     this.icon,
   });
 
-//from json
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         id: json['id'] as int?,
         main: json['main'] as String?,

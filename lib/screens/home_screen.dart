@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sky_cast_weatherapp/controller/global_controller.dart';
+import 'package:sky_cast_weatherapp/screens/widgets/comfort_level.dart';
+import 'package:sky_cast_weatherapp/screens/widgets/dailydata_forecast.dart';
+import 'package:sky_cast_weatherapp/screens/widgets/hourly_data.dart';
+import 'package:sky_cast_weatherapp/utils/custom_colors.dart';
 import 'package:sky_cast_weatherapp/widgets/current_weather.dart';
 import 'package:sky_cast_weatherapp/widgets/header.dart';
-import 'package:sky_cast_weatherapp/widgets/hourly_data.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
+  
+  //create instance of the controller
   final GlobalController globalController =
       Get.put(GlobalController(), permanent: true);
 
@@ -20,35 +25,59 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Obx(
-          (() => globalController.checkLoading().isTrue
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Center(
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HeaderWidget(),
-                      // for our current temperature
-                      CurrentWeatherWidget(
-                        weatherDataCurrent:
-                            globalController.getData().getCurrentWeather(),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      HourlyDataWidget(
-                        weatherDataHourly:
-                            globalController.getData().getHourlyWeather(),
-                      )
-                    ],
-                  ),
-                )),
-        ),
+        child: Obx(() => globalController.checkLoading().isTrue
+            ? const Center(
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage('assets/icons/clouds.png'),
+                  radius: 60,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                  strokeWidth: 2,
+                ),
+                ),
+              )
+            : Center(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const HeaderWidget(),
+                    //for our current temperature ('current')
+                    CurrentWeatherWidget(
+                        weatherDataCurrent: globalController
+                            .getWeatherData()
+                            .getCurrentWeather()),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    HourlyDataWidget(
+                      weatherDataHourly:
+                          globalController.getWeatherData().getHourlyWeather(),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    DailyDataForecast(
+                      weatherDataDaily:
+                          globalController.getWeatherData().getDailyWeather(),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: CustomColors.dividerLine.withAlpha(250),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ComfortLevelWidget(
+                      weatherDataCurrent:
+                          globalController.getWeatherData().getCurrentWeather(),
+                    ),
+                  ],
+                ),
+              )),
       ),
     );
   }

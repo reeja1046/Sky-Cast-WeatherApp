@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:sky_cast_weatherapp/screens/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           primaryTextTheme: Typography.blackMountainView,
           primaryColorDark: Colors.blue,
           primaryColorLight: Colors.white12),
-      home: const HomeScreen(),
+      home: const HomePage(),
     );
   }
 }
