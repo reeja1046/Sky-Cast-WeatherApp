@@ -11,20 +11,6 @@ class CurrentWeatherWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //temperature area
-        temparatureAreaWidget(),
-        const SizedBox(
-          height: 20,
-        ),
-        //more details = windspeed,humidity,clouds
-        currentWeatherMoreDetailsWidget(),
-      ],
-    );
-  }
-
-  Widget currentWeatherMoreDetailsWidget() {
-    return Column(
-      children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -60,7 +46,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             )
           ],
         ),
-       const SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -71,7 +57,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               child: Text(
                 '${weatherDataCurrent.current.windSpeed}km/hr',
-                style: const TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12, color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -80,7 +66,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               child: Text(
                 '${weatherDataCurrent.current.clouds}%',
-                style: const TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12, color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -89,50 +75,12 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               child: Text(
                 '${weatherDataCurrent.current.humidity}%',
-                style: const TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12, color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             )
           ],
         )
-      ],
-    );
-  }
-
-  Widget temparatureAreaWidget() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Image.asset(
-          "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png",
-          height: 80,
-          width: 80,
-        ),
-        Container(
-          height: 50,
-          width: 1,
-          color: CustomColors.dividerLine,
-        ),
-        RichText(
-          text: TextSpan(children: [
-            TextSpan(
-              text: "${weatherDataCurrent.current.temp!.toInt()}°",
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 68,
-                color: CustomColors.textColorsBlack,
-              ),
-            ),
-            TextSpan(
-              text: weatherDataCurrent.current.weather![0].description!,
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
-                color: Colors.grey,
-              ),
-            )
-          ]),
-        ),
       ],
     );
   }

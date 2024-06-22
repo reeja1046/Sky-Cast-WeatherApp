@@ -27,7 +27,7 @@ class DailyDataForecast extends StatelessWidget {
           child: const Text(
             'Coming Days',
             style: TextStyle(
-              color: CustomColors.textColorsBlack,
+              color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -37,7 +37,7 @@ class DailyDataForecast extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: CustomColors.cardColor.withAlpha(150),
+            color: Colors.white,
             borderRadius: BorderRadius.circular(20),
           ),
           child: dailyList(size),
@@ -48,10 +48,8 @@ class DailyDataForecast extends StatelessWidget {
 
   Widget dailyList(var size) {
     return SizedBox(
-      height: size.height*0.5,
+      height: size.height * 0.5,
       child: ListView.builder(
-        //shrinkWrap: true,
-        //physics: const NeverScrollableScrollPhysics(),
         itemCount: weatherDataDaily.daily.length > 7
             ? 7
             : weatherDataDaily.daily.length,
@@ -66,7 +64,7 @@ class DailyDataForecast extends StatelessWidget {
                   right: 10,
                 ),
                 decoration: BoxDecoration(
-                    color: CustomColors.dividerLine,
+                    color: Colors.black,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -76,7 +74,7 @@ class DailyDataForecast extends StatelessWidget {
                       child: Text(
                         getDay(weatherDataDaily.daily[index].dt),
                         style: const TextStyle(
-                            color: CustomColors.textColorsBlack,
+                            color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w500),
                       ),
@@ -90,7 +88,7 @@ class DailyDataForecast extends StatelessWidget {
                     Text(
                       '${weatherDataDaily.daily[index].temp!.max}º/${weatherDataDaily.daily[index].temp!.min}º',
                       style: const TextStyle(
-                          color: CustomColors.textColorsBlack,
+                          color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),

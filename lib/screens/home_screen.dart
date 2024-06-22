@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
   //create instance of the controller
   final GlobalController globalController =
       Get.put(GlobalController(), permanent: true);
@@ -24,17 +23,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Obx(() => globalController.checkLoading().isTrue
             ? const Center(
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/icons/clouds.png'),
-                  radius: 60,
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
                   strokeWidth: 2,
-                ),
                 ),
               )
             : Center(
@@ -44,7 +39,13 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const HeaderWidget(),
+                    HeaderWidget(
+                        weatherDataCurrent: globalController
+                            .getWeatherData()
+                            .getCurrentWeather()),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     //for our current temperature ('current')
                     CurrentWeatherWidget(
                         weatherDataCurrent: globalController
@@ -64,10 +65,7 @@ class _HomePageState extends State<HomePage> {
                       weatherDataDaily:
                           globalController.getWeatherData().getDailyWeather(),
                     ),
-                    Divider(
-                      thickness: 2,
-                      color: CustomColors.dividerLine.withAlpha(250),
-                    ),
+
                     const SizedBox(
                       height: 10,
                     ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sky_cast_weatherapp/model/weather_data_current.dart';
 import 'package:sky_cast_weatherapp/utils/custom_colors.dart';
@@ -26,13 +25,13 @@ class ComfortLevelWidget extends StatelessWidget {
             'Comfort Level',
             style: TextStyle(
               fontSize: 18,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 20),
-          //height: 180,
           child: Column(
             children: [
               Center(
@@ -51,8 +50,7 @@ class ComfortLevelWidget extends StatelessWidget {
                       bottomLabelStyle: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        height: 1.5,
-                        letterSpacing: 0.3,
+                        color: Colors.white,
                       ),
                     ),
                     animationEnabled: true,
@@ -76,12 +74,12 @@ class ComfortLevelWidget extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         const TextSpan(
-                          text: 'Feels Like ',
+                          text: 'Feels Like  ',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: CustomColors.textColorsBlack,
+                            color: Colors.white,
                           ),
                         ),
                         TextSpan(
@@ -90,7 +88,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: CustomColors.textColorsBlack,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -111,7 +109,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: CustomColors.textColorsBlack,
+                            color: Colors.white,
                           ),
                         ),
                         TextSpan(
@@ -120,7 +118,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: CustomColors.textColorsBlack,
+                            color: Colors.white,
                           ),
                         ),
                       ],

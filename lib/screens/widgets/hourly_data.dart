@@ -24,8 +24,9 @@ class HourlyDataWidget extends StatelessWidget {
           child: const Text(
             'Today',
             style: TextStyle(
+              color: Colors.white,
               fontSize: 18,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
@@ -53,14 +54,14 @@ class HourlyDataWidget extends StatelessWidget {
                 width: 90,
                 margin: const EdgeInsets.only(left: 20, right: 5),
                 decoration: BoxDecoration(
-                  color: CustomColors.cardColor,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      offset: const Offset(0.5, 0),
+                      offset:Offset(0.5, 0),
                       blurRadius: 30,
                       spreadRadius: 1,
-                      color: CustomColors.dividerLine.withAlpha(150),
+                      color: Colors.black,
                     ),
                   ],
                   gradient: cardIndex.value == index

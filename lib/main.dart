@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sky_cast_weatherapp/screens/home_screen.dart';
+import 'package:sky_cast_weatherapp/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Weather App",
+      title: "Sky Cast",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryTextTheme: Typography.blackMountainView,
-          primaryColorDark: Colors.blue,
-          primaryColorLight: Colors.white12),
-      home: const HomePage(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const SplashScreen(),
     );
   }
 }
