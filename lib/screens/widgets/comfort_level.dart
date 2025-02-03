@@ -52,6 +52,11 @@ class ComfortLevelWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
+                      mainLabelStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
                     ),
                     animationEnabled: true,
                     size: 150,
@@ -88,7 +93,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: Colors.white,
+                            color: Colors.blue,
                           ),
                         ),
                       ],
@@ -97,7 +102,7 @@ class ComfortLevelWidget extends StatelessWidget {
                   Container(
                     height: 25,
                     width: 1,
-                    color: CustomColors.dividerLine,
+                    color: Colors.white,
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                   ),
                   RichText(
@@ -118,7 +123,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 0.8,
-                            color: Colors.white,
+                            color: Colors.blue,
                           ),
                         ),
                       ],

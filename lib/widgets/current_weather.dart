@@ -19,7 +19,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/windspeed.png"),
@@ -29,7 +29,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/clouds.png"),
@@ -39,7 +39,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/humidity.png"),

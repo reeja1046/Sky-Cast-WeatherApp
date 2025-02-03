@@ -58,7 +58,7 @@ class HourlyDataWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: const [
                     BoxShadow(
-                      offset:Offset(0.5, 0),
+                      offset: Offset(0.5, 0),
                       blurRadius: 30,
                       spreadRadius: 1,
                       color: Colors.black,
@@ -122,9 +122,7 @@ class HourlyDetailsWidget extends StatelessWidget {
           child: Text(
             getHourlyTime(timeStamp),
             style: TextStyle(
-              color: cardIndex == index
-                  ? Colors.white
-                  : CustomColors.textColorsBlack,
+              color: cardIndex == index ? Colors.white : Colors.black,
               fontWeight:
                   cardIndex == index ? FontWeight.bold : FontWeight.w500,
               fontSize: cardIndex == index ? 16 : 14,
@@ -144,9 +142,7 @@ class HourlyDetailsWidget extends StatelessWidget {
           child: Text(
             '$tempº',
             style: TextStyle(
-              color: cardIndex == index
-                  ? Colors.white
-                  : CustomColors.textColorsBlack,
+              color: cardIndex == index ? Colors.white : Colors.black,
               fontWeight:
                   cardIndex == index ? FontWeight.bold : FontWeight.w500,
               fontSize: cardIndex == index ? 16 : 14,

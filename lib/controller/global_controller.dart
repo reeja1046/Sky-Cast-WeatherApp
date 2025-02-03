@@ -54,14 +54,14 @@ class GlobalController extends GetxController {
       }
     }
 
-    //update the current location by giving the latitude and longitude
+    //update the current location by the latitude & longitude
     return await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.high)
         .then((value) {
-      //update our latitude and longitude
+      //update latitude & longitude
       _latitude.value = value.latitude;
       _longitude.value = value.longitude;
-      //calling our weather api
+      //calling weather api
       return FetchWeatherApi().processData(value.latitude, value.longitude).then((value) {
         weatherData.value = value;
          _isLoading.value = false;

@@ -34,7 +34,7 @@ class CurrentWeatherWidget extends StatelessWidget {
         Container(
           height: 50,
           width: 1,
-          color: CustomColors.dividerLine,
+          color: Colors.white,
         ),
         RichText(
           text: TextSpan(children: [
@@ -43,7 +43,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 68,
-                color: CustomColors.textColorsBlack,
+                color: Colors.black,
               ),
             ),
             TextSpan(
@@ -71,7 +71,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/windspeed.png"),
@@ -81,7 +81,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/clouds.png"),
@@ -91,14 +91,16 @@ class CurrentWeatherWidget extends StatelessWidget {
               width: 60,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: CustomColors.cardColor,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Image.asset("assets/icons/humidity.png"),
             ),
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

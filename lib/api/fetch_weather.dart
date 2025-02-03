@@ -9,8 +9,6 @@ import 'package:sky_cast_weatherapp/utils/api_url.dart';
 class FetchWeatherApi {
   WeatherData? weatherData;
 
-  //processing the data from response -> to json
-
   Future<WeatherData> processData(lat, lon) async {
     var response = await http.get(Uri.parse(apiURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
@@ -23,3 +21,5 @@ class FetchWeatherApi {
     return weatherData!;
   }
 }
+
+

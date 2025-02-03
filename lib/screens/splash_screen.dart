@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sky_cast_weatherapp/screens/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,24 +20,30 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Text(
-          'Sky Cast',
-          style: TextStyle(
-              fontSize: 35, color: Colors.blue, fontWeight: FontWeight.w600),
-        ),
-      ),
-    );
+    return Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset(
+              'assets/logo.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+        )
+        // Center(
+        //   child: Text(
+        //     'Sky Cast',
+        //     style: TextStyle(
+        //         fontSize: 35, color: Colors.blue, fontWeight: FontWeight.w600),
+        //   ),
+        // ),
+        );
   }
 
   Future<void> startAnimation() async {
     await Future.delayed(const Duration(seconds: 5));
-
-    // ignore: use_build_context_synchronously
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const HomePage()),
-    );
+    Get.to(() => const HomePage());
   }
 }

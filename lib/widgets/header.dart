@@ -48,7 +48,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       children: [
         // Row for city and temperature
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
